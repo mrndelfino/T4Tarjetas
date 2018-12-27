@@ -1,0 +1,74 @@
+﻿@model IEnumerable<T4Tarjetas.Models.Tarjeta>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<p>
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Tarjeta", new { id = Session["IDUsuario"] })';">Crear nueva</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NroTarjeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodTarjeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomTarjeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FecCre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FecVen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontoTarjeta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDProveedor)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NroTarjeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodTarjeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomTarjeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FecCre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FecVen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoTarjeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDProveedor)
+            </td>
+            <td>
+                <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Edit", "Tarjeta", new { id = Session["IDUsuario"] })';">Editar</button>
+                <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Delete", "Tarjeta", new { id = Session["IDUsuario"] })';">Eliminar</button>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Volver", "Dashboard", "Usuario")

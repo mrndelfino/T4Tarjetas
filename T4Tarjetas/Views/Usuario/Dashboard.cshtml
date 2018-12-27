@@ -1,0 +1,61 @@
+﻿@model T4Tarjetas.Models.Usuario
+
+@{
+    ViewBag.Title = "Dashboard";
+
+    if (Session["IDUsuario"] == null)
+    {
+        Response.Redirect("~/Usuario/Login");
+    }
+}
+
+<div>
+    <hr />
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-white rounded">
+        <a class="navbar-brand" href="#">
+            <img src="~/Images/logoswift.png" width="80" height="80" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("AddFund", "Usuario", new { id = Session["IDUsuario"], idb = Session["IDBanco"]})';">Agregar saldo</button>
+        <a>
+            @{
+                if (Session["Balance"] != null)
+                {
+                    <a class="label-success">
+                        Balance: @Session["Balance"]
+                    </a>
+                }
+            }
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @Session["Email"]
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="@Url.Action("Details", "Usuario", new { id = Session["IDUsuario"] })">Ver perfil</a>
+                        <a class="dropdown-item" href="@Url.Action("Details", "Tarjeta", new { id = Session["IDUsuario"] })">Ver tarjetas</a>
+                        <a class="dropdown-item" href="@Url.Action("Details", "Banco", new { id = Session["IDUsuario"] })">Cuenta bancaria</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="@Url.Action("LogOut", "Usuario")">Salir</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">       
+    </div>
+    @*<dl class="dl-horizontal">
+        <dt>
+            @Session["Email"].ToString()
+        </dt>
+    </dl>*@
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

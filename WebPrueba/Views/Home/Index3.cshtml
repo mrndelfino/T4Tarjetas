@@ -1,0 +1,31 @@
+﻿@model WebPrueba.Models.Index2ViewModel
+
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index3", "Home", FormMethod.Post))
+{
+<div class="container" align="center">
+    <h2>añadir</h2>
+    <form>
+        <div class="form-group">
+            <label for="NroTarjeta">Nro</label>
+            <input type="text" name="nroTarjeta" class="form-control" id="nroTarjeta" value="@Model.NroTarjeta" placeholder="Nro">
+        </div>
+        <div class="form-group">
+            <label for="Monto">Monto</label>
+            <input type="number" name="monto" class="form-control" value="100" id="monto" placeholder="Monto">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group" align="center">
+            <div class="col-md-12">
+                <label class="text-success">@ViewBag.SuccessAdd</label>
+            </div>
+        </div>
+    </form>
+</div>
+}

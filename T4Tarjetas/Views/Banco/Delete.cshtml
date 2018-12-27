@@ -1,0 +1,23 @@
+﻿@model T4Tarjetas.Models.Banco
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<nav class="navbar navbar-light">
+    <a class="navbar-brand" href="#">
+        <img src="~/Images/logoswift.png" width="80" height="80" class="d-inline-block align-top" alt="">
+    </a>
+</nav>
+<hr />
+<div class="container" align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <h4>¿Seguro desea eliminar su cuenta bancaria asociada?</h4>       
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+        </div>
+    }
+</div>
+@Html.ActionLink("Volver", "Dashboard", "Usuario")

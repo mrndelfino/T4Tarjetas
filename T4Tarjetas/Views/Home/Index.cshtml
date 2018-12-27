@@ -1,0 +1,33 @@
+﻿@{
+
+    ViewBag.Title = "Index";
+
+}
+
+@section Header
+{
+    <link href="/Content/home.css" rel="stylesheet" type="text/css"/>
+}
+
+<nav class="navbar navbar-light">
+    <a class="navbar-brand" href="#">
+        <img src="~/Images/logoswift.png" width="80" height="80" class="d-inline-block align-top" alt="">
+    </a>
+    <form class="form-inline align-right">
+        <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Login", "Usuario")';">Iniciar sesión</button>
+    </form>
+</nav>
+<div class="container text-center">
+    <h1>
+        Crea tarjetas virtuales rápido y sencillo.<br />
+        <small class="text-muted">Tomá el control de tu plata.</small>
+    </h1>
+    <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "Usuario")';">Empezar</button>
+    <hr />
+    <hr />
+    <h1>
+        Registrar un proveedor.
+    </h1>
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Proveedor")';">Empezar</button>
+</div>
+

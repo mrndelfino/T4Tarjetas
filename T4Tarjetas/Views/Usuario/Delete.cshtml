@@ -1,0 +1,18 @@
+﻿@model T4Tarjetas.Models.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div>
+    <hr />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Dashboard", "Usuario")
+        </div>
+    }
+</div>

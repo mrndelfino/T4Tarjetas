@@ -1,0 +1,37 @@
+﻿@model WebPrueba.Models.Index2ViewModel
+
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index2", "Home", FormMethod.Post))
+{
+<div class="container" align="center">
+    <h2>quitar</h2>
+    <form>
+        <div class="form-group">
+            <label for="NroTarjeta">Numero de tarjeta</label>
+            <input type="text" name="NroTarjeta" class="form-control" id="NroTarjeta" value="@Model.NroTarjeta" placeholder="Numero de tarjeta">
+        </div>
+        <div class="form-group">
+            <label for="Monto">Monto</label>
+            <input type="number" name="Monto" class="form-control" value="100" id="Monto" placeholder="Monto">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br />
+        <div class="form-group" align="center">
+            <div class="col-md-12">
+                <label class="text-danger">@ViewBag.InsufficentMoney</label>
+            </div>
+        </div>
+        <div class="form-group" align="center">
+            <div class="col-md-12">
+                <label class="text-success">@ViewBag.SuccessSubstract</label>
+            </div>
+        </div>
+    </form>
+</div>
+}

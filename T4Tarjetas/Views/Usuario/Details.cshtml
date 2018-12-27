@@ -1,0 +1,43 @@
+﻿@model T4Tarjetas.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+
+    if (Session["IDUsuario"] == null)
+    {
+        Response.Redirect("~/Usuario/Login");
+    }
+}
+
+<div class="container" align="center">
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+        <br />
+    </dl>
+    <p>
+        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Edit", "Usuario", new { id = Session["IDUsuario"] })';">Editar</button>
+        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Delete", "Usuario", new { id = Session["IDUsuario"] })';">Eliminar</button>
+    </p>
+</div>
+@Html.ActionLink("Volver", "Dashboard", "Usuario")

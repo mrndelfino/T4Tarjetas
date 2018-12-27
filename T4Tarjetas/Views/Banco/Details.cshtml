@@ -1,0 +1,51 @@
+﻿@model IEnumerable<T4Tarjetas.Models.Banco>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<p>
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Create", "Banco", new { id = Session["IDUsuario"] })';">Añadir cuenta bancaria</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDBanco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomBanco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDBanco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomBanco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+            <td>
+                <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Delete", "Banco", new { id = Session["IDUsuario"] })';">Eliminar cuenta bancaria</button>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Volver", "Dashboard", "Usuario")

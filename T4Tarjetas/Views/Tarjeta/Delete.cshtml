@@ -1,0 +1,90 @@
+﻿@model T4Tarjetas.Models.Tarjeta
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<nav class="navbar navbar-light">
+    <a class="navbar-brand" href="#">
+        <img src="~/Images/logoswift.png" width="80" height="80" class="d-inline-block align-top" alt="">
+    </a>
+</nav>
+<div class="container" align="center">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NroTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroTarjeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodTarjeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomTarjeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FecCre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FecCre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FecVen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FecVen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MontoTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MontoTarjeta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProveedor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+        </div>
+    }
+</div>
+@Html.ActionLink("Volver", "Dashboard", "Usuario")

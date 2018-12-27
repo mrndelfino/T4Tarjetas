@@ -1,0 +1,83 @@
+.wrapper {
+    height: 200px;
+    width: 400px;
+    perspective: 300px;
+}
+
+.card, .cards .face, .cards .back {
+    background: linear-gradient(#8c8c8c, #737373);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    width: 340px;
+}
+
+    .cards .face .head {
+        display: flex;
+        justify-content: space-between;
+        margin: 16px 16px 0 16px;
+    }
+
+        .cards .face .head .title {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+    .cards .face .main {
+        margin: 16px 16px 0 16px;
+    }
+
+        .cards .face .main .number-title {
+            color: #ccc;
+        }
+
+        .cards .face .main .number {
+            font-size: 24px;
+        }
+
+    .cards .face .date {
+        display: flex;
+        max-width: 100px;
+        justify-content: space-between;
+        margin: 16px 16px 16px 16px;
+    }
+
+.cards .back {
+    animation: demo 3s ease-in-out;
+    transform: translateX(0) translateY(0);
+    transition: transform 1s;
+    background: linear-gradient(#828282, #696969);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+    .cards .back .magnetic-line {
+        background: #000;
+        margin-top: 16px;
+        height: 32px;
+        width: 100%;
+    }
+
+    .cards .back .cvv {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        margin: 0 16px 66.66667px 0;
+        text-align: end;
+        padding-right: 8px;
+        width: 235.66667px;
+        height: 24px;
+    }
+
+.cards:hover .back {
+    transform: translateX(170px);
+    transition: transform 1s;
+}

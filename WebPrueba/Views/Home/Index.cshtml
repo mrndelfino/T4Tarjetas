@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" align="center">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+    <form>
+        <div class="form-group">
+            <label for="NroTarjeta">Numero de tarjeta</label>
+            <input class="form-control" id="NroTarjeta" name="NroTarjeta" value="0000006096719570" placeholder="Numero de tarjeta" />
+        </div>
+        <div class="form-group">
+            <label for="CodTarjeta">Codigo de tarjeta</label>
+            <input class="form-control" id="CodTarjeta" name="CodTarjeta" value="6643" placeholder="Codigo de tarjeta" />
+        </div>
+        <div class="form-group">
+            <label for="FecVen">Fecha de vencimiento</label>
+            <input class="form-control" id="FecVen" name="FecVen" value="23/1/2019 00:57:11" placeholder="Fecha de vencimiento" />
+        </div>
+        <div class="container-fluid" align="center">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
+                </div>
+                <select class="custom-select" name="operacion" id="operacion">
+                    <option selected>Operacion</option>
+                    <option value="a">Añadir</option>
+                    <option value="q">Quitar</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+        <br />
+        <div class="form-group" align="center">
+            <div class="col-md-12">
+                <label class="text-danger">@ViewBag.NotFound</label>
+            </div>
+            <div class="form-group" align="center">
+                <div class="col-md-12">
+                    <label class="text-danger">@ViewBag.NotValid</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    }
+</div>
